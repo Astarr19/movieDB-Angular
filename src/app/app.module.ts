@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FilterPipe } from './filter.pipe';
 import { SearchCriteriaComponent } from './search-criteria/search-criteria.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { WatchListPageComponent } from './watch-list-page/watch-list-page.component';
@@ -11,7 +10,6 @@ import { WatchListPageComponent } from './watch-list-page/watch-list-page.compon
 @NgModule({
   declarations: [
     AppComponent,
-    FilterPipe,
     SearchCriteriaComponent,
     MovieListComponent,
     WatchListPageComponent
