@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    }
+.pageTitle{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 40px;
+    font-family: 'Dosis', sans-serif;
+}
+.navBar{
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+}
