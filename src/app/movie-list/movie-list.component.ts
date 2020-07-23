@@ -11,6 +11,7 @@ import { SearchCriteriaComponent } from '../search-criteria/search-criteria.comp
 export class MovieListComponent implements OnInit {
 
   constructor(private api: ApiResponseService){}
+  imagePath: string = "https://image.tmdb.org/t/p/w600_and_h900_bestv2/"
 
   movies: any;
 

@@ -3,5 +3,11 @@
 <div class="navBar">
     <h1 class="pageTitle">Movies</h1>
     <app-search-criteria></app-search-criteria>
-   
-</div>
+</div>   
+   <ul class="movie-container">
+       <li *ngFor="let movie of movies">
+        {{movie.title}}
+       <img class="imageClass"src={{imagePath}}{{movie.poster_path}}>
+       </li>
+   </ul>
+
