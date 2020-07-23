@@ -1,0 +1,13 @@
+<!-- Needs property binding, movie-list will be parent component -->
+<p>movie-detail works!</p>
+<div *ngIf='movie'>
+
+    <h2>{{ movie.title }} Details</h2>
+    <div><span>Overview: </span>{{ movie.Overview }}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="movie.title" placeholder="movie"/>
+      </label>
+    </div>
+  
+  </div>
