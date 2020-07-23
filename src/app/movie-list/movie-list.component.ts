@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiResponseService } from '../api-response.service';
 import { MovieParent } from '../api-interfaces'
+import { SearchCriteriaComponent } from '../search-criteria/search-criteria.component';
 
 @Component({
   selector: 'app-movie-list',
@@ -17,6 +18,4 @@ export class MovieListComponent implements OnInit {
     this.api.getMovies().subscribe((data: MovieParent) =>{
       this.movies = data.results})
     }
-  
-
 }
