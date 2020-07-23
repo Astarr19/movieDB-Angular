@@ -10,6 +10,7 @@ export class SearchCriteriaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
