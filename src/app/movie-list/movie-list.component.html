@@ -5,3 +5,17 @@
     <app-search-criteria></app-search-criteria>
    
 </div>
+
+<!-- Doug is trying some stuff out for parent/child binding between movie-list and movie-details -->
+<!-- <ul class = 'movies'>
+    <li *ngFor='let movie of movies'
+    [class.selected] = 'movie === selectedMovie'
+    (click) = 'onSelect(movie)'>
+    <span class="badge">{{movie.title}}</span> ( {{ movie.release_date }} ){{ movie-image-url-part1 }} {{ movie-image-url-part2 }} -->
+    <!-- I think only year is necessary for release date -->
+    <!-- </li>
+</ul> -->
+
+<app-movie-detail ></app-movie-detail>
+<!-- <app-movie-detail [movie]='selectedMovie'></app-movie-detail> -->
+
