@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiResponseService } from '../api-response.service';
+import { MovieParent } from '../api-interfaces'
 
 @Component({
   selector: 'app-movie-list',
@@ -10,11 +11,12 @@ export class MovieListComponent implements OnInit {
 
   constructor(private api: ApiResponseService){}
 
-    movies: object;
+  movies: any;
 
   ngOnInit(): void {
-    this.api.getMovies().subscribe((data) => this.movies = {...data})
-  }
+    this.api.getMovies().subscribe((data: MovieParent) =>{
+      this.movies = data.results})
+    }
   
 
 }
