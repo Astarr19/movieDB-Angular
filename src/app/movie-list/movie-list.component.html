@@ -10,8 +10,6 @@
        <img class="imageClass"src={{imagePath}}{{movie.poster_path}}>
        </li>
    </ul>
-   
-</div>
 
 <!-- Doug is trying some stuff out for parent/child binding between movie-list and movie-details -->
 <!-- <ul class = 'movies'>
@@ -25,4 +23,14 @@
 
 <app-movie-detail ></app-movie-detail>
 <!-- <app-movie-detail [movie]='selectedMovie'></app-movie-detail> -->
+    <app-search-criteria [searchResults]='searchResults' (onSearch)="searched($event)"></app-search-criteria>
+<button (click)="lastPage()">Last Page</button>
+<button (click)="nextPage()">Next Page</button>
+<li *ngFor='let movie of movies'>
+    <h1>{{movie.title}}</h1>
+    <h2>{{movie.overview}}</h2>
+    <h3>{{movie.release_date}}</h3>
+    <img src="{{imagePath}}{{movie.poster_path}}">
+</li>
+
 
