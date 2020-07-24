@@ -3,16 +3,23 @@
 <div class="navBar">
     <h1 class="pageTitle">Movies</h1>
     <app-search-criteria></app-search-criteria>
-</div>   
+</div>
+   
    <ul class="movie-container">
        <li *ngFor="let movie of movies">
-        {{movie.title}}
-       <img class="imageClass"src={{imagePath}}{{movie.poster_path}}>
+            <a routerLink='/detail/{{ movie.id }}'>
+            {{movie.title}}
+       
+            <img class="imageClass"src={{imagePath}}{{movie.poster_path}}>
+            </a>
+            <!-- code, pre-routing: [class.selected] = 'movie === selectedMovie'            
+            (click) = 'onSelect(movie)' -->
+                <!-- [class.selected] = CSS property to visually indicated that movie is clicked on to select -->
+        
        </li>
-   </ul>
-   
-</div>
+   </ul>   
 
+    
 <!-- Doug is trying some stuff out for parent/child binding between movie-list and movie-details -->
 <!-- <ul class = 'movies'>
     <li *ngFor='let movie of movies'
@@ -23,6 +30,5 @@
     <!-- </li>
 </ul> -->
 
-<app-movie-detail ></app-movie-detail>
 <!-- <app-movie-detail [movie]='selectedMovie'></app-movie-detail> -->
 

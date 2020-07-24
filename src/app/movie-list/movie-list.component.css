@@ -16,12 +16,37 @@
 }
 .movie-container{
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
+    list-style: none;
 }
+
 .imageClass{
     height: 300px;
     width: auto;
 
 }
+
+.movie-container li {
+    font-family: Dosis, sans-serif;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.movie-container li:hover {
+    background-color: #CFD8DC;
+}
+
+.movie-container li.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+.movie-container li.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+}
+
+/* .movie-container img {
+    width: 100%;
+} */
