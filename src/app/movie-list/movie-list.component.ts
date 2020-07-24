@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiResponseService } from '../api-response.service';
 import { MovieParent } from '../api-interfaces'
 import { SearchCriteriaComponent } from '../search-criteria/search-criteria.component';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-movie-list',
@@ -32,6 +34,11 @@ export class MovieListComponent implements OnInit {
         this.movies = data.results})
     }
   }
+
+  // selectedMovie: Movie;
+  // onSelect(movie: Movie): void {
+  //   this.selectedMovie = movie;
+  // }
 
   ngOnInit(): void {
     this.api.getMovies(this.endPointURL,'',this.currentPage).subscribe((data: MovieParent) =>{

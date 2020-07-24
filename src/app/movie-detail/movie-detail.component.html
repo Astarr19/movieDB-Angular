@@ -1,13 +1,14 @@
-<!-- Needs property binding, movie-list will be parent component -->
-<p>movie-detail works!</p>
-<div *ngIf='movie'>
+<div *ngIf='movie' class='movie-detail'>
 
-    <h2>{{ movie.title }} Details</h2>
-    <div><span>Overview: </span>{{ movie.Overview }}</div>
-    <div>
+    <h2>{{ movie.title }} ({{ movie.release_date | date:'yyyy' }})</h2>
+    <h3>Synopsis</h3> 
+    {{ movie.overview }}
+</div>
+
+<!-- <a [routerLink] = "src/app/movie-list/movie-list.component.html">Go Back</a> -->
+
+    <!-- <div>
       <label>name:
         <input [(ngModel)]="movie.title" placeholder="movie"/>
       </label>
-    </div>
-  
-  </div>
+    </div>  -->
