@@ -5,8 +5,8 @@
     <app-search-criteria></app-search-criteria>
 </div>   
    <ul class="movie-container">
-       <li *ngFor="let movie of movies">
-        {{movie.title}}
+       <li class="movieCard" *ngFor="let movie of movies">
+        <div class="movieTitle"></div>
        <img class="imageClass"src={{imagePath}}{{movie.poster_path}}>
        </li>
    </ul>
