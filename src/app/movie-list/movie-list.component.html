@@ -5,10 +5,13 @@
     <app-search-criteria></app-search-criteria>
    
 </div>
+<button (click)="lastPage()">Last Page</button>
+<button (click)="nextPage()">Next Page</button>
 <li *ngFor='let movie of movies'>
     <h1>{{movie.title}}</h1>
     <h2>{{movie.overview}}</h2>
     <h3>{{movie.release_date}}</h3>
     <img src="{{imagePath}}{{movie.poster_path}}">
 </li>
+
 

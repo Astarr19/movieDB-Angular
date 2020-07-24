@@ -12,11 +12,28 @@ export class MovieListComponent implements OnInit {
 
   constructor(private api: ApiResponseService){}
 
-  movies: any;
+  movies: any[];
+  endPointURL: string='discover/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c&page=';
+  currentPage: number= 1;
   imagePath: string= "https://image.tmdb.org/t/p/w600_and_h900_bestv2/";
+  updateDisplay(){
+    this.movies = this.movies;
+  }
+  nextPage(){
+    this.currentPage++;
+    this.api.getMovies(this.endPointURL,'',this.currentPage).subscribe((data: MovieParent) =>{
+      this.movies = data.results})
+  }
+  lastPage(){
+    if (this.currentPage !== 1) {
+      this.currentPage--;
+      this.api.getMovies(this.endPointURL,'',this.currentPage).subscribe((data: MovieParent) =>{
+        this.movies = data.results})
+    }
+  }
 
   ngOnInit(): void {
-    this.api.getMovies().subscribe((data: MovieParent) =>{
+    this.api.getMovies(this.endPointURL,'',this.currentPage).subscribe((data: MovieParent) =>{
       this.movies = data.results})
     }
   

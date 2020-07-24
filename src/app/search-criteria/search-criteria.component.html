@@ -1,11 +1,5 @@
 <base href="/">
-<form>
-    <div class="form-group">
-        <input type="text" class="form-control" id="searchInput1" placeholder="Search..." />
-    
-
-    <button type="submit" class="btn" id="search">
-        Search a movie
-    </button>
-    </div>
+<form #f="ngForm" (ngSubmit)="getSearch(f)">
+    <input type="text" class="form-control" id="searchInput1" placeholder="Search..." name="query" ngModel/>
+    <button type="submit">Search a movie</button>
 </form>
