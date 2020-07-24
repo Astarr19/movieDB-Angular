@@ -13,11 +13,12 @@ export class MovieListComponent implements OnInit {
   constructor(private api: ApiResponseService){}
 
   movies: any[];
+  searchResults: any[];
   endPointURL: string='discover/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c&page=';
   currentPage: number= 1;
   imagePath: string= "https://image.tmdb.org/t/p/w600_and_h900_bestv2/";
-  updateDisplay(){
-    this.movies = this.movies;
+  searched(event){
+    this.movies = event;
   }
   nextPage(){
     this.currentPage++;

@@ -2,7 +2,7 @@
 <title>Movies</title>
 <div class="navBar">
     <h1 class="pageTitle">Movies</h1>
-    <app-search-criteria></app-search-criteria>
+    <app-search-criteria [searchResults]='searchResults' (onSearch)="searched($event)"></app-search-criteria>
    
 </div>
 <button (click)="lastPage()">Last Page</button>
