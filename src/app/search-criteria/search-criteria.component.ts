@@ -16,7 +16,6 @@ export class SearchCriteriaComponent implements OnInit {
   endPointURL: string='search/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c&query=';
   query: string;
   @Output() onSearch = new EventEmitter<object>();
-  @Input() searchResults: any;
   getSearch(f) {
     this.api.getMovies(this.endPointURL,f.value.query).subscribe((data: MovieParent) =>{
       this.onSearch.emit(data.results);
