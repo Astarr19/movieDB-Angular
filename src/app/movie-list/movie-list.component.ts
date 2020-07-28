@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { ApiResponseService } from '../api-response.service';
-import { MovieParent } from '../api-interfaces'
+import { MovieParent, Movie } from '../api-interfaces'
 import { SearchCriteriaComponent } from '../search-criteria/search-criteria.component';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { WatchListPageComponent } from '../watch-list-page/watch-list-page.component';
 
 @Component({
   selector: 'app-movie-list',
@@ -11,11 +12,12 @@ import { Location } from '@angular/common';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-
+@Input() movie:any;
   constructor(private api: ApiResponseService){}
 
   movies: any[];
   searchResults: any[];
+  watchList = new Array();
   endPointURL: string='discover/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c&page=';
   currentPage: number= 1;
   imagePath: string= "https://image.tmdb.org/t/p/w600_and_h900_bestv2/";
