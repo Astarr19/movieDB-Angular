@@ -21,27 +21,39 @@ export class MovieListComponent implements OnInit {
   searchResults: boolean = false;
   query: string;
   endPointURL: string='discover/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c';
-  searchEndURL: string=`search/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c$query=${this.query}`;
+  searchEndURL: string=`search/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c`;
   currentPage: number= 1;
-  apiPage: string = `&page=${this.currentPage}`;
   imagePath: string= "https://image.tmdb.org/t/p/w600_and_h900_bestv2/";
   addPage(url, page) {
-    let suffix = `&page=${page}`
-    return url += suffix;
+    return url += `&page=${page}`;
+  }
+  addQuery(url, query){
+    return url += query;
+  }
+  addAdult(url, adult){
+    return url += adult;
+  }
+  addYear(url, year){
+    return url += year;
+  }
+  addGenre(url, genre){
+    return url += genre;
   }
   searched(event){
-    this.movies = event;
+    this.movies = event.data.results;
+    this.query = event.query;
     this.searchResults = true;
     this.currentPage = 1;
   }
   nextPage(){
     this.currentPage++;
     if (this.searchResults) {
-      let endPoint = this.addPage(this.searchEndURL, this.currentPage)
+      let endPoint = this.addPage(this.searchEndURL, this.currentPage);
+      endPoint = this.addQuery(endPoint, this.query);
       this.api.getMovies(endPoint).subscribe((data: MovieParent) =>{
         this.movies = data.results})
     } else {
-      let endPoint = this.addPage(this.endPointURL, this.currentPage)
+      let endPoint = this.addPage(this.endPointURL, this.currentPage);
       this.api.getMovies(endPoint).subscribe((data: MovieParent) =>{
       this.movies = data.results})
     }
@@ -50,8 +62,9 @@ export class MovieListComponent implements OnInit {
     if (this.currentPage !== 1) {
         this.currentPage--;
       if (this.searchResults) {
-        this.addPage(this.searchEndURL, this.currentPage)
-        this.api.getMovies(this.searchEndURL).subscribe((data: MovieParent) =>{
+        let endPoint = this.addPage(this.searchEndURL, this.currentPage);
+        endPoint = this.addQuery(endPoint, this.query);
+        this.api.getMovies(endPoint).subscribe((data: MovieParent) =>{
           this.movies = data.results})
       } else {
         this.addPage(this.endPointURL, this.currentPage)
