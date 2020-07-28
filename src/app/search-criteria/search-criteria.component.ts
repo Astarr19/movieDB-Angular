@@ -13,11 +13,12 @@ export class SearchCriteriaComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  endPointURL: string='search/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c&query=';
-  query: string;
+  endPointURL: string='search/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c';
   @Output() onSearch = new EventEmitter<object>();
   getSearch(f) {
-    this.api.getMovies(this.endPointURL,f.value.query).subscribe((data: MovieParent) =>{
+    let query: string = '&query=' + f.value.query;
+    let suffix = this.endPointURL += query;
+    this.api.getMovies(suffix).subscribe((data: MovieParent) =>{
       this.onSearch.emit(data.results);
     })
   }

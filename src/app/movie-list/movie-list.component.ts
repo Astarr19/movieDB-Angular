@@ -12,29 +12,52 @@ export class MovieListComponent implements OnInit {
 
   constructor(private api: ApiResponseService){}
 
+  ngOnInit(): void {
+    this.api.getMovies(this.endPointURL).subscribe((data: MovieParent) =>{
+      this.movies = data.results})
+    }  
+
   movies: any[];
-  endPointURL: string='discover/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c&page=';
+  searchResults: boolean = false;
+  query: string;
+  endPointURL: string='discover/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c';
+  searchEndURL: string=`search/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c$query=${this.query}`;
   currentPage: number= 1;
+  apiPage: string = `&page=${this.currentPage}`;
   imagePath: string= "https://image.tmdb.org/t/p/w600_and_h900_bestv2/";
+  addPage(url, page) {
+    let suffix = `&page=${page}`
+    return url += suffix;
+  }
   searched(event){
     this.movies = event;
+    this.searchResults = true;
+    this.currentPage = 1;
   }
   nextPage(){
     this.currentPage++;
-    this.api.getMovies(this.endPointURL,'',this.currentPage).subscribe((data: MovieParent) =>{
+    if (this.searchResults) {
+      let endPoint = this.addPage(this.searchEndURL, this.currentPage)
+      this.api.getMovies(endPoint).subscribe((data: MovieParent) =>{
+        this.movies = data.results})
+    } else {
+      let endPoint = this.addPage(this.endPointURL, this.currentPage)
+      this.api.getMovies(endPoint).subscribe((data: MovieParent) =>{
       this.movies = data.results})
+    }
   }
   lastPage(){
     if (this.currentPage !== 1) {
-      this.currentPage--;
-      this.api.getMovies(this.endPointURL,'',this.currentPage).subscribe((data: MovieParent) =>{
+        this.currentPage--;
+      if (this.searchResults) {
+        this.addPage(this.searchEndURL, this.currentPage)
+        this.api.getMovies(this.searchEndURL).subscribe((data: MovieParent) =>{
+          this.movies = data.results})
+      } else {
+        this.addPage(this.endPointURL, this.currentPage)
+        this.api.getMovies(this.endPointURL).subscribe((data: MovieParent) =>{
         this.movies = data.results})
+      }
     }
   }
-
-  ngOnInit(): void {
-    this.api.getMovies(this.endPointURL,'',this.currentPage).subscribe((data: MovieParent) =>{
-      this.movies = data.results})
-    }
-  
 }
