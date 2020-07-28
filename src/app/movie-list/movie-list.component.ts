@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiResponseService } from '../api-response.service';
 import { MovieParent } from '../api-interfaces'
 import { SearchCriteriaComponent } from '../search-criteria/search-criteria.component';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-movie-list',

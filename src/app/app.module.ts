@@ -7,8 +7,9 @@ import { AppComponent } from './app.component';
 import { SearchCriteriaComponent } from './search-criteria/search-criteria.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { WatchListPageComponent } from './watch-list-page/watch-list-page.component';
-import {ApiResponseService} from './api-response.service'
+import { ApiResponseService } from './api-response.service'
 import { SearchFilterPipe } from './filter.pipe';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SearchFilterPipe } from './filter.pipe';
     SearchCriteriaComponent,
     MovieListComponent,
     WatchListPageComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
