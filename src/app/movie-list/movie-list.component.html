@@ -1,24 +1,20 @@
-<base href="/">
-<title>Movies</title>
-<div class="navBar">
-    <h1 class="pageTitle">Movies</h1>
-    <app-search-criteria></app-search-criteria>
-</div>
-   
-   <ul class="movie-container">
-       <li class="movieCard" *ngFor="let movie of movies">
-        <a routerLink="/detail/{{movie.id}}">
-            <!-- [title] = "{{movie.title}} + ' details'"  -->
-            <!--  -->
-            <!-- (click)='openMovieDetail()' -->
-        
-            <!-- <div class="movieTitle"></div> -->
-            <img class="imageClass"src={{imagePath}}{{movie.poster_path}} alt= '{{ movie.title }}'>
-        </a>
-       </li>
-   </ul>
+<app-watch-list-page></app-watch-list-page>
+<h1 class="pageTitle"> MOVIES</h1>
+<app-search-criteria (onSearch)="searched($event)"></app-search-criteria>
+<button  class="lastPageBtn"(click)="lastPage()">Last Page</button>
+<button class="nextPageBtn"(click)="nextPage()">Next Page</button>
+<ul class="movie-container">
+<li class="movieCard" *ngFor='let movie of movies'>
+    <a routerLink="/detail/{{movie.id}}">
+    <h1 class="movieTitle">{{movie.title}}</h1>
+    <!-- <h2>{{movie.overview}}</h2> -->
+    <h3 class="movieDate">{{movie.release_date}}</h3>
+    <img class="imageClass"src="{{imagePath}}{{movie.poster_path}}">
+    </a>
+    <button class="addToWatchListBtn" (click)='addToWatch(movies[i])'>Add to Watch List</button>
+</li>
+</ul>
 
-    
 <!-- Doug is trying some stuff out for parent/child binding between movie-list and movie-details -->
 <!-- <ul class = 'movies'>
     <li *ngFor='let movie of movies'

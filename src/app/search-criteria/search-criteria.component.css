@@ -10,6 +10,8 @@
 }
 
 .form-control {
+    display: flex;
+    margin: 0 auto;
     width: 300px;
     padding: .375rem .75rem;
     font-size: 1rem;
@@ -24,21 +26,18 @@
     margin-top: 30px;
  
 }
-.SearchBtn {
+.searchBtn {
     display: flex;
     justify-content: center;
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-    outline: none;
-    min-height: 38px;
-    font-weight: 400;
+    display: flex;
+    margin:0 auto;
+    margin-top: 5px;
+    justify-content: center;
+    background-color:rgba(255, 255, 255, 0.294);
+    border: none;
+    color: white;
+    padding: 10px 32px;
     text-align: center;
-    cursor: pointer;
-    margin-left: 10px;
-    margin-top: 30px;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: .25rem;
+    text-decoration: none;
+    font-size: 16px;
 }

@@ -10,6 +10,7 @@ import { WatchListPageComponent } from './watch-list-page/watch-list-page.compon
 import { ApiResponseService } from './api-response.service'
 import { SearchFilterPipe } from './filter.pipe';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { WatchListService } from './watch-list.service'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ApiResponseService],
+  providers: [ApiResponseService, WatchListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

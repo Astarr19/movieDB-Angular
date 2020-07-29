@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
+<<<<<<< HEAD
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MovieParent } from './api-interfaces';
+=======
+import { HttpClient } from '@angular/common/http';
+>>>>>>> 801e7aa712754ddd69e1e9dcd1e1045c3626c91e
 import { Movie } from './api-interfaces';
 import { Observable, of } from 'rxjs';
 
@@ -13,12 +17,8 @@ export class ApiResponseService {
 
   constructor(private http: HttpClient) { }
   apiURL: string= 'https://api.themoviedb.org/3/'
-  getMovies(endPoint: string, query?: string, page?: number){
-    if (page) {
-      return this.http.get(`${this.apiURL}${endPoint}${query}${page}`)
-    } else {
-      return this.http.get(`${this.apiURL}${endPoint}${query}`)
-    }
+  getMovies(endPoint: string){
+    return this.http.get(this.apiURL + endPoint)
   }
 
   getMovieDetail(id: string) {
