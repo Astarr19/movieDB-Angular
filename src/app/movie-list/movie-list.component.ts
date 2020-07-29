@@ -27,6 +27,7 @@ export class MovieListComponent implements OnInit {
   query: string;
   endPointURL: string='discover/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c';
   searchEndURL: string=`search/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c`;
+  apiURL: string='';
   currentPage: number= 1;
   imagePath: string= "https://image.tmdb.org/t/p/w600_and_h900_bestv2/";
   addPage(url, page) {
@@ -50,12 +51,17 @@ export class MovieListComponent implements OnInit {
     this.searchResults = true;
     this.currentPage = 1;
   }
+  criteriaSearched(event){
+    this.movies = event.data.results;
+    this.searchResults = true;
+    this.currentPage = 1;
+  }
   nextPage(){
     this.currentPage++;
     if (this.searchResults) {
-      let endPoint = this.addPage(this.searchEndURL, this.currentPage);
-      endPoint = this.addQuery(endPoint, this.query);
-      this.api.getMovies(endPoint).subscribe((data: MovieParent) =>{
+      this.apiURL = this.addPage(this.searchEndURL, this.currentPage);
+      this.apiURL = this.addQuery(this.apiURL, this.query);
+      this.api.getMovies(this.apiURL).subscribe((data: MovieParent) =>{
         this.movies = data.results})
     } else {
       let endPoint = this.addPage(this.endPointURL, this.currentPage);

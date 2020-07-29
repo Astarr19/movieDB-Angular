@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,Output,EventEmitter} from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter, AfterViewInit} from '@angular/core';
 import { MovieParent, Movie } from '../api-interfaces';
 import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
 import { WatchListService } from '../watch-list.service';
