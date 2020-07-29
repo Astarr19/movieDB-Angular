@@ -1,3 +1,16 @@
+<<<<<<< HEAD
 <h1>Watch List</h1>
 <ul class="watch-list">
 </ul>
+=======
+<base href="/">
+<button (click)='update()'>Update watch list</button>
+<ul class="movie-container">
+    <li class="movieCard" *ngFor="let movie of watchListArr; index as i">
+     <a routerLink='/detail/{{ movie.id }}'>
+     <div class="movieTitle">{{movie.title}}</div>
+    <img class="imageClass"src={{imagePath}}{{movie.poster_path}}>
+     </a>
+    </li>
+</ul>
+>>>>>>> b8380ca7029b5423e4443f2aafa184c90df228e3

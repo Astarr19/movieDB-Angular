@@ -5,6 +5,7 @@ import { SearchCriteriaComponent } from '../search-criteria/search-criteria.comp
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { WatchListPageComponent } from '../watch-list-page/watch-list-page.component';
+import { WatchListService } from '../watch-list.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -13,7 +14,8 @@ import { WatchListPageComponent } from '../watch-list-page/watch-list-page.compo
 })
 export class MovieListComponent implements OnInit {
 @Input() movie:any;
-  constructor(private api: ApiResponseService){}
+
+  constructor(private api: ApiResponseService, private watchList: WatchListService){}
 
   ngOnInit(): void {
     this.api.getMovies(this.endPointURL).subscribe((data: MovieParent) =>{
@@ -75,5 +77,9 @@ export class MovieListComponent implements OnInit {
         this.movies = data.results})
       }
     }
+  }
+  addToWatch(item){
+    this.watchList.add(item);
+    console.log(item);
   }
 }
