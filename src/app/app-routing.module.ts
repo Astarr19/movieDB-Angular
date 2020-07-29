@@ -7,11 +7,17 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/movie-list', pathMatch:'full'},
-  {path: 'movie-list', component:MovieListComponent},
+  {path: 'movie-list', component: MovieListComponent},
+  {path: 'detail/:id', component: MovieDetailComponent},
+  // {path: 'movie-list', component: MovieListComponent,
+  //   children: [
+  //   {
+  //     path: 'detail', component:MovieDetailComponent
+  //   },
+  //   ] },
   {path: 'search-criteria', component:SearchCriteriaComponent},
   {path: 'watch-list', component:WatchListPageComponent},
-  {path: 'detail', component:MovieDetailComponent},
-  {path: 'detail/:id', component:MovieDetailComponent}
+  
 ];
 
 @NgModule({
@@ -19,3 +25,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const routingComponents = [  MovieListComponent,
+                                    MovieDetailComponent,
+                                 ]

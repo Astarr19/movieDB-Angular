@@ -1,4 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(53, 53, 53);
+    color: white;
+    font-family: Dosis, sans-serif;
+    }
+
 .movie-detail {
     width: auto;
-    font-family: 'Dosis', sans-serif;
+    font-family: Dosis, sans-serif;
 }

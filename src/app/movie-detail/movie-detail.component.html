@@ -1,7 +1,11 @@
-<div *ngIf='movie' class='movie-detail'>
+<div class="navBar">
+  <h1 class="pageTitle">Movie Details</h1>
+  <app-search-criteria></app-search-criteria>
+</div>
 
+<div *ngIf='movie' class='movie-detail'>
+    <img src="{{imagePath}}{{movie.poster_path}}">
     <h2>{{ movie.title }} ({{ movie.release_date | date:'yyyy' }})</h2>
-    <h3>Synopsis</h3> 
     {{ movie.overview }}
 </div>
 
