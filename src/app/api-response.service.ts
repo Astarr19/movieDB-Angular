@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { MovieParent } from './api-interfaces';
 import { Movie } from './api-interfaces';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +17,9 @@ export class ApiResponseService {
     return this.http.get(this.apiURL + endPoint)
   }
 
-  // getMovie(id: number) {
-  //   return of(Movies.find(movie => movie.id === id));
-  // }
-  //do I need to call on the API movie id property to route links properly?
+  getMovieDetail(id: string) {
+     return this.http.get(`${this.apiURL}movie/${id}?api_key=ab96898a4ea60dd2468dcd8ae39dd30c`);
+   }
+
+
 }
