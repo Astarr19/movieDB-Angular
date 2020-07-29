@@ -8,11 +8,12 @@
 </div>
    
    <ul class="movie-container">
-       <li class="movieCard" *ngFor="let movie of movies">
+       <li class="movieCard" *ngFor="let movie of movies; index as i">
         <a routerLink='/detail/{{ movie.id }}'>
-        <div class="movieTitle"></div>
+        <div class="movieTitle">{{movie.title}}</div>
        <img class="imageClass"src={{imagePath}}{{movie.poster_path}}>
         </a>
+        <button (click)='addToWatch(movies[i])'>Add to Watch List</button>
        </li>
    </ul>
 
