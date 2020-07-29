@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
-<<<<<<< HEAD
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MovieParent } from './api-interfaces';
-=======
-import { HttpClient } from '@angular/common/http';
->>>>>>> 801e7aa712754ddd69e1e9dcd1e1045c3626c91e
 import { Movie } from './api-interfaces';
 import { Observable, of } from 'rxjs';
 
