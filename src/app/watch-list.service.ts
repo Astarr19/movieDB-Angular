@@ -7,6 +7,7 @@ export class WatchListService {
 
   constructor() { }
   watchList: any[] = [];
+
   add(item){
     this.watchList.push(item);
   }
@@ -15,12 +16,7 @@ export class WatchListService {
       target.push(element);
     }
   }
- remove(item){
-    this.watchList.splice(item);
-  }
-  removeFromWatchList(target){
-    for (let element of this.watchList) {
-      target.splice(element);
-    }
+  remove(index){
+    this.watchList.splice(index,1);
   }
 }
