@@ -13,25 +13,16 @@ export class WatchListPageComponent implements OnInit {
   constructor(private watchList: WatchListService) { }
 
   ngOnInit(): void {
+    this.watchList.updateWatchList(this.watchListArr);
   }
 
   watchListArr: any[]=[];
   update(){
     this.watchList.updateWatchList(this.watchListArr);
   }
-
-
-  removeMe(item){
-    console.log("I WAS CLICKED")
-    this.watchListArr.splice(item,1)
-    this.watchList.remove(item);
-  }
-  removeAll(item){
-    this.watchList.removeFromWatchList(item);
-  }
-  remove(index){
+  removeMe(index){
     console.log("I WAS CLICKED")
     this.watchListArr.splice(index,1);
-
+    this.watchList.remove(index)
   }
 }
