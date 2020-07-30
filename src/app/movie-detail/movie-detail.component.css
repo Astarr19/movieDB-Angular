@@ -6,16 +6,35 @@
     font-family: Dosis, sans-serif;
     }
 
+.navBar {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 0;
+}
+
 .movie-detail {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
     width: auto;
-    margin: 20px 10px;
+    margin: 10px 10px;
     padding: 20px;
     font-family: Dosis, sans-serif;
 }
 
 .heading {
+    display: flex;
+    justify-content: flex-start;
     flex-direction: row;
+    margin: 10px 0;
+}
+
+.overview {
+    display: flex;
+    margin: 10px 0;
+
 }
 
 .imageClass{
