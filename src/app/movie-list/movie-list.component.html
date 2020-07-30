@@ -1,28 +1,29 @@
-<h1 class="pageTitle"> MOVIES</h1>
-<app-search-criteria (onSearch)="searched($event)" (criteriaSearch)="criteriaSearched($event)"></app-search-criteria>
-<button  class="lastPageBtn"(click)="lastPage()">Last Page</button>
-<button class="nextPageBtn"(click)="nextPage()">Next Page</button>
-<ul class="movie-container">
-<li class="movieCard" *ngFor='let movie of movies; index as i'>
-    <a routerLink="/detail/{{movie.id}}">
-    <h1 class="movieTitle">{{movie.title}}</h1>
-    <!-- <h2>{{movie.overview}}</h2> -->
-    <h3 class="movieDate">{{movie.release_date}}</h3>
-    <img class="imageClass"src="{{imagePath}}{{movie.poster_path}}">
-    </a>
-    <button class="addToWatchListBtn" (click)='addToWatch(movies[i])'>Add to Watch List</button>
-</li>
-</ul>
+<base href="/">
+<title>Movies</title>
+<div class="navBar">
+    <h1 class="pageTitle">Movies</h1>
+    <app-search-criteria></app-search-criteria>
+</div>
+   
+   <ul class="movie-container">
+       <li class="movieCard" *ngFor="let movie of movies">
+        <a routerLink="/detail/{{movie.id}}">
+            <img class="imageClass"src={{imagePath}}{{movie.poster_path}} alt= '{{ movie.title }}'>
+        </a>
+       </li>
+   </ul>
 
-<app-search-criteria  (onSearch)="searched($event)"></app-search-criteria>
+<app-search-criteria [searchResults]='searchResults' (onSearch)="searched($event)"></app-search-criteria>
 <button (click)="lastPage()">Last Page</button>
 <button (click)="nextPage()">Next Page</button>
+
 <li *ngFor='let movie of movies'>
     <h1>{{movie.title}}</h1>
     <h2>{{movie.overview}}</h2>
     <h3>{{movie.release_date | date: 'yyyy' }}</h3>
     <img src="{{imagePath}}{{movie.poster_path}}">
 </li>
+
 
 
 

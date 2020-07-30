@@ -4,9 +4,16 @@
 </div>
 
 <div *ngIf='movie' class='movie-detail'>
-    <img src="{{imagePath}}{{movie.poster_path}}">
-    <h2>{{ movie.title }} ({{ movie.release_date | date:'yyyy' }})</h2>
-    {{ movie.overview }}
+    <img class='imageClass' src="{{imagePath}}{{movie.poster_path}}">
+    <div class = 'heading'>
+      <h2>{{ movie.title }} ({{ movie.release_date | date:'yyyy' }})</h2> 
+      <button class = 'addToWatchListBtn'>Add to Watch List</button>
+    </div>
+    <p>
+      {{ movie.overview }}
+    </p>
+      {{ movie.spoken_languages[name] }}
+    <button class='backToListBtn'>Back to List</button>
 </div>
 
 <!-- <a [routerLink] = "src/app/movie-list/movie-list.component.html">Go Back</a> -->
