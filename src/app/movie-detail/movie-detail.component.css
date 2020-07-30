@@ -7,6 +7,43 @@
     }
 
 .movie-detail {
+    display: block;
     width: auto;
+    margin: 20px 10px;
+    padding: 20px;
     font-family: Dosis, sans-serif;
+}
+
+.heading {
+    flex-direction: row;
+}
+
+.imageClass{
+    height: 450px;
+    width: 300px; 
+    border-radius: 10px;
+    box-shadow:2px 1px 1px 2px rgba(255, 255, 255, 0.294);
+    border-radius: 10px; 
+}
+
+.addToWatchListBtn, .backToListBtn {
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    justify-content: center;
+    background-color:rgba(255, 255, 255, 0.294);
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+@media (min-width:600px){
+    .movie-detail{
+        display:flex;
+        flex-wrap: wrap;
+        flex-direction:row;
+    }  
 }
