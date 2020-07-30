@@ -18,70 +18,34 @@ export class MovieListComponent implements OnInit {
   constructor(private api: ApiResponseService, private watchList: WatchListService){}
 
   ngOnInit(): void {
-    this.api.getMovies(this.endPointURL).subscribe((data: MovieParent) =>{
+    this.api.getMovies(this.apiURL).subscribe((data: MovieParent) =>{
       this.movies = data.results})
     }  
 
   movies: any[];
-  searchResults: boolean = false;
-  query: string;
-  endPointURL: string='discover/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c';
-  searchEndURL: string=`search/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c`;
-  apiURL: string='';
+  apiURL: string='discover/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c';
   currentPage: number= 1;
   imagePath: string= "https://image.tmdb.org/t/p/w600_and_h900_bestv2/";
-  addPage(url, page) {
-    return url += `&page=${page}`;
-  }
-  addQuery(url, query){
-    return url += query;
-  }
-  addAdult(url, adult){
-    return url += adult;
-  }
-  addYear(url, year){
-    return url += year;
-  }
-  addGenre(url, genre){
-    return url += genre;
-  }
   searched(event){
     this.movies = event.data.results;
-    this.query = event.query;
-    this.searchResults = true;
+    this.apiURL = event.suffix;
     this.currentPage = 1;
   }
   criteriaSearched(event){
     this.movies = event.data.results;
-    this.searchResults = true;
+    this.apiURL = event.suffix;
     this.currentPage = 1;
   }
   nextPage(){
     this.currentPage++;
-    if (this.searchResults) {
-      this.apiURL = this.addPage(this.searchEndURL, this.currentPage);
-      this.apiURL = this.addQuery(this.apiURL, this.query);
-      this.api.getMovies(this.apiURL).subscribe((data: MovieParent) =>{
-        this.movies = data.results})
-    } else {
-      let endPoint = this.addPage(this.endPointURL, this.currentPage);
-      this.api.getMovies(endPoint).subscribe((data: MovieParent) =>{
+    this.api.getMovies((this.apiURL + `&page=${this.currentPage}`)).subscribe((data: MovieParent) =>{
       this.movies = data.results})
-    }
   }
   lastPage(){
     if (this.currentPage !== 1) {
         this.currentPage--;
-      if (this.searchResults) {
-        let endPoint = this.addPage(this.searchEndURL, this.currentPage);
-        endPoint = this.addQuery(endPoint, this.query);
-        this.api.getMovies(endPoint).subscribe((data: MovieParent) =>{
+        this.api.getMovies((this.apiURL + `&page=${this.currentPage}`)).subscribe((data: MovieParent) =>{
           this.movies = data.results})
-      } else {
-        this.addPage(this.endPointURL, this.currentPage)
-        this.api.getMovies(this.endPointURL).subscribe((data: MovieParent) =>{
-        this.movies = data.results})
-      }
     }
   }
   addToWatch(item){
