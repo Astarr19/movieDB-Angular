@@ -8,10 +8,11 @@
       <h2>{{ movie.title }} ({{ movie.release_date | date:'yyyy' }})</h2> 
       
     </div>
-    <p>
+    <p class = 'overview'>
       {{ movie.overview }}
     </p>
-      {{ movie.spoken_languages[name] }}
+      <!-- {{ movie.original_language }} -->
+      <!-- original_language uses abbreviations, i.e. English = 'en'. Need custom pipe to transform data to be legible, but I don't have time to finish that -->
     <button class = 'addToWatchListBtn' (click)='addToWatch(movies[i])'>Add to Watch List</button>
     <button class='backToListBtn' (click)='backClicked()'>Back to Movies</button>
 </div>
