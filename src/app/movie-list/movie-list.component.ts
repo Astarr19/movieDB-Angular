@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApiResponseService } from '../api-response.service';
 import { MovieParent, Movie } from '../api-interfaces'
 import { SearchCriteriaComponent } from '../search-criteria/search-criteria.component';
@@ -26,6 +26,7 @@ export class MovieListComponent implements OnInit {
   apiURL: string='discover/movie?api_key=ab96898a4ea60dd2468dcd8ae39dd30c';
   currentPage: number= 1;
   imagePath: string= "https://image.tmdb.org/t/p/w600_and_h900_bestv2/";
+  
   searched(event){
     this.movies = event.data.results;
     this.apiURL = event.suffix;

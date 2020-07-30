@@ -6,19 +6,12 @@
     <img class='imageClass' src="{{imagePath}}{{movie.poster_path}}">
     <div class = 'heading'>
       <h2>{{ movie.title }} ({{ movie.release_date | date:'yyyy' }})</h2> 
-      <button class = 'addToWatchListBtn'>Add to Watch List</button>
+      
     </div>
     <p>
       {{ movie.overview }}
     </p>
       {{ movie.spoken_languages[name] }}
-    <button class='backToListBtn'>Back to List</button>
+    <button class = 'addToWatchListBtn' (click)='addToWatch(movies[i])'>Add to Watch List</button>
+    <button class='backToListBtn' (click)='backClicked()'>Back to Movies</button>
 </div>
-
-<!-- <a [routerLink] = "src/app/movie-list/movie-list.component.html">Go Back</a> -->
-
-    <!-- <div>
-      <label>name:
-        <input [(ngModel)]="movie.title" placeholder="movie"/>
-      </label>
-    </div>  -->

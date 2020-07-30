@@ -1,7 +1,9 @@
 <h1 class="pageTitle"> MOVIES</h1>
 <app-search-criteria (onSearch)="searched($event)" (criteriaSearch)="criteriaSearched($event)"></app-search-criteria>
-<button  class="lastPageBtn"(click)="lastPage()">Last Page</button>
-<button class="nextPageBtn"(click)="nextPage()">Next Page</button>
+<div class = 'navButtons'>
+    <button class="lastPageBtn"(click)="lastPage()">Previous Page</button>
+    <button class="nextPageBtn"(click)="nextPage()">Next Page</button>
+</div>
 <ul class="movie-container">
 <li class="movieCard" *ngFor='let movie of movies; index as i'>
     <a routerLink="/detail/{{movie.id}}">
