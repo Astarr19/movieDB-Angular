@@ -24,7 +24,6 @@ export class SearchCriteriaComponent implements OnInit {
   @Output() onSearch = new EventEmitter<object>();
   @Output() criteriaSearch = new EventEmitter<object>();
   getSearch(f) {
-    let query: string = '&query=' + f.value.query;
     let suffix:string = `${this.searchEndURL}&query=${f.value.query}`;
     this.api.getMovies(suffix).subscribe((data: MovieParent) =>{
       this.obj = {
@@ -35,7 +34,12 @@ export class SearchCriteriaComponent implements OnInit {
     })
   }
   getCriteria(g){
-    let suffix: string = `${this.endPointURL}&include_adult=${g.value.adult}&primary_release_year=${g.value.year}&with_original_language=${g.value.language}`;
+    let suffix: string;
+    if (g.value.year === undefined){
+      suffix = `${this.endPointURL}&include_adult=${g.value.adult}&with_original_language=${g.value.language}`;
+    } else {
+      suffix = `${this.endPointURL}&include_adult=${g.value.adult}&primary_release_year=${g.value.year}&with_original_language=${g.value.language}`;
+    }
     this.api.getMovies(suffix).subscribe((data: MovieParent) =>{
       this.obj = {
         suffix: suffix,

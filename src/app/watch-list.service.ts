@@ -16,11 +16,11 @@ export class WatchListService {
     }
   }
  remove(item){
-    this.watchList.splice(item);
+    this.watchList.splice(item,1);
   }
   removeFromWatchList(target){
     for (let element of this.watchList) {
-      target.splice(element);
+      target.splice(element, 1);
     }
   }
 }
