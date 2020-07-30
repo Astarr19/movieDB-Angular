@@ -53,6 +53,9 @@
     
 }
 
+li a {
+    text-decoration: none;
+}
 
 .navButtons {
     display: flex;
