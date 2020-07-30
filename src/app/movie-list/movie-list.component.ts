@@ -87,5 +87,7 @@ export class MovieListComponent implements OnInit {
   addToWatch(item){
     this.watchList.add(item);
     console.log(item);
+    alert("Movie Added To Watch List!")
   }
+  
 }

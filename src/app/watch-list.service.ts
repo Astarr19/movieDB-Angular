@@ -15,4 +15,12 @@ export class WatchListService {
       target.push(element);
     }
   }
+ remove(item){
+    this.watchList.splice(item);
+  }
+  removeFromWatchList(target){
+    for (let element of this.watchList) {
+      target.splice(element);
+    }
+  }
 }

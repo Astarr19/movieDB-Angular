@@ -40,10 +40,26 @@
     justify-content: center;
     font-size: 30px;
 }
+
 @media (min-width:600px){
     .movie-container{
         display:flex;
         flex-wrap: wrap;
         flex-direction:row;
     }  
+}
+.watchListBtn{
+    display: flex;
+    justify-content: center;
+    margin:0 auto;
+    margin-top: 50px;
+    justify-content: center;
+    background-color:rgb(9, 136, 255);
+    border: none;
+    color: white;
+    padding: 20px 22px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px; 
+    border-radius: 30px;
 }

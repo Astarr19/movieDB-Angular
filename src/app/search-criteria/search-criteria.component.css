@@ -41,3 +41,18 @@
     text-decoration: none;
     font-size: 16px;
 }
+.submitBtn{
+    display: flex;
+    justify-content: center;
+    display: flex;
+    margin:0 auto;
+    margin-top: 5px;
+    justify-content: center;
+    background-color:rgba(255, 255, 255, 0.294);
+    border: none;
+    color: white;
+    padding: 5px 22px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px; 
+}
