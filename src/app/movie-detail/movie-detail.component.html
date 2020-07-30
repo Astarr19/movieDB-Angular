@@ -13,6 +13,7 @@
     </p>
       <!-- {{ movie.original_language }} -->
       <!-- original_language uses abbreviations, i.e. English = 'en'. Need custom pipe to transform data to be legible, but I don't have time to finish that -->
-    <button class = 'addToWatchListBtn' (click)='addToWatch(movies[i])'>Add to Watch List</button>
+    <!-- <button class = 'addToWatchListBtn' (click)='addToWatch(movies[i])'>Add to Watch List</button> -->
+    <!-- including Watch List Button would require another ngFor loop, not enough time for that -->
     <button class='backToListBtn' (click)='backClicked()'>Back to Movies</button>
 </div>

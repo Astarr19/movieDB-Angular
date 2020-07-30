@@ -32,11 +32,11 @@ export class MovieDetailComponent implements OnInit {
     console.log(`${this.movie} selected`);
   }
 
-  addToWatch(item){
-    this.watchList.add(item);
-    console.log(item);
-    alert("Movie Added To Watch List!")
-  }
+  // addToWatch(item){
+  //   this.watchList.add(item);
+  //   console.log(item);
+  //   alert("Movie Added To Watch List!")
+  // }
 
   backClicked() {
     this.location.back();
