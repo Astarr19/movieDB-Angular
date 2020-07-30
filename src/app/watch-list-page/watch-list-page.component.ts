@@ -19,9 +19,22 @@ export class WatchListPageComponent implements OnInit {
   update(){
     this.watchList.updateWatchList(this.watchListArr);
   }
+<<<<<<< HEAD
   remove(index){
+=======
+<<<<<<< HEAD
+  removeMe(item){
+    console.log("I WAS CLICKED")
+    this.watchListArr.splice(item,1)
+    this.watchList.remove(item);
+  }
+  removeAll(item){
+    this.watchList.removeFromWatchList(item);
+=======
+  remove(index){
+>>>>>>> d441c25dd8966433afebedea8d63529a48b73d18
     console.log("I WAS CLICKED")
     this.watchListArr.splice(index,1);
+>>>>>>> e8b779459021e2952670db3bf6e7fb29b9cd853b
   }
- 
 }

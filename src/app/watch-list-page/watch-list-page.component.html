@@ -1,5 +1,6 @@
 <base href="/">
 <button class="watchListBtn" (click)='update()'>Click to view your Watchlist</button>
+<button class="watchListBtn" (click)="removeAll(watchListArr)">Clear list</button>
 <ul class="movie-container">
     <li class="movieCard" *ngFor="let movie of watchListArr; index as i">
      <a routerLink='/detail/{{ movie.id }}'>
