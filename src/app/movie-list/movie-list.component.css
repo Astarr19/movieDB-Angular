@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     font-size: 80px;
+    margin-top: 20px;
 }
 .navBar{
     display: flex;
@@ -22,8 +23,8 @@
 }
 
 .imageClass{
-    height: 600px;
-    width: 400px; 
+    height: 500px;
+    width: 350px; 
 }
 .movieCard{
 display: flex;
@@ -40,8 +41,10 @@ border-radius: 10px;
 .movieTitle{
     display: flex;
     justify-content: center;
-    font-size: 25px;
-    width: 400px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    height: auto;
+    width: 250px;
     background-color: black;
 }
 .nextPageBtn, .lastPageBtn{
@@ -55,12 +58,12 @@ border-radius: 10px;
 .addToWatchListBtn{
     display: flex;
     margin:0 auto;
-    margin-bottom: 5px;
+    margin-top:5px;
     justify-content: center;
     background-color:rgba(255, 255, 255, 0.294);
     border: none;
     color: white;
-    padding: 10px 32px;
+    padding: 10px 30px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
@@ -69,6 +72,8 @@ border-radius: 10px;
     display: flex;
     justify-content: center;
     background-color: black;
+    font-size: 15px;
+    padding-bottom: 10px;
 }
 @media (min-width:600px){
     .movie-container{

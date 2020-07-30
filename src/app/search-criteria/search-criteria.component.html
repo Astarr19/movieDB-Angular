@@ -3,12 +3,16 @@
     <input type="text" class="form-control" id="searchInput1" placeholder="Search..." name="query" ngModel/>
     <button type="submit" class="searchBtn">Search by Title</button>
 </form>
-<form #g="ngForm" (ngSubmit)="getCriteria(g)">
-    <label for="genre">Genre</label>
-    <input type="text"  id="genre" name="genre" ngModel>
+<form class="form-container"#g="ngForm" (ngSubmit)="getCriteria(g)">
+    <label for="language">Primary Language</label>
+    <select id="language" name="language" ngModel>
+        <option value="en" selected>English</option>
+        <option value="es">Spanish</option>
+        <option value="de">German</option>
+    </select>
     <label for="year">Year Released</label>
     <input type="number" min="1888" id="year" name="year" ngModel>
     <label for="adult">Adult Movies?</label>
     <input type="checkbox" id="adult" name="adult" ngModel>
-    <button type="submit">Search by Criteria</button>
+    <button class="submitBtn" type="submit">Search by Criteria</button>
 </form>

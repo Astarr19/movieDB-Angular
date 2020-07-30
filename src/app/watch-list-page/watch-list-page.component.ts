@@ -10,7 +10,6 @@ import { WatchListService } from '../watch-list.service';
 })
 export class WatchListPageComponent implements OnInit {
   imagePath: string= "https://image.tmdb.org/t/p/w600_and_h900_bestv2/";
-
   constructor(private watchList: WatchListService) { }
 
   ngOnInit(): void {
@@ -19,5 +18,20 @@ export class WatchListPageComponent implements OnInit {
   watchListArr: any[]=[];
   update(){
     this.watchList.updateWatchList(this.watchListArr);
+  }
+
+
+  removeMe(item){
+    console.log("I WAS CLICKED")
+    this.watchListArr.splice(item,1)
+    this.watchList.remove(item);
+  }
+  removeAll(item){
+    this.watchList.removeFromWatchList(item);
+  }
+  remove(index){
+    console.log("I WAS CLICKED")
+    this.watchListArr.splice(index,1);
+
   }
 }

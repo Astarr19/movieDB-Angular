@@ -1,4 +1,27 @@
 .activeLink {
     text-decoration: none;
     font-weight: bolder;
+    color: white;
+}
+.watch-list {
+    background-color:rgba(255, 255, 255, 0.294);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px; 
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.movie-list {
+    background-color:rgba(255, 255, 255, 0.294);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px; 
+    margin-left: 10px;
+    margin-top: 10px;
 }
