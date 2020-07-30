@@ -6,7 +6,6 @@
 <li class="movieCard" *ngFor='let movie of movies; index as i'>
     <a routerLink="/detail/{{movie.id}}">
     <h1 class="movieTitle">{{movie.title}}</h1>
-    <!-- <h2>{{movie.overview}}</h2> -->
     <h3 class="movieDate">{{movie.release_date | date: 'yyyy'}}</h3>
     <img class="imageClass"src="{{imagePath}}{{movie.poster_path}}">
     </a>
